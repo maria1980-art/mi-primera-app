@@ -1,0 +1,32 @@
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=mibasededatos
+      - DB_USER=maria
+      - DB_PASSWORD=password123
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=mibasededatos
+      - POSTGRES_USER=maria
+      - POSTGRES_PASSWORD=password123
+    volumes:
+      - datos-db:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "8080:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=ildefonzalopez7@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=password123
+
+volumes:
+  datos-db:

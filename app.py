@@ -1,4 +1,4 @@
-from flask import Flask
+return '¡Hola desde mi app actualizada v2.0from flask import Flask
 import psycopg2
 import os
 
@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return '¡Hola desde mi primer contenedor Docker con base de datos!'
+    return '¡Hola desde mi app actualizada v2.0!'
 
 @app.route('/db')
 def db():
